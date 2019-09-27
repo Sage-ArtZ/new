@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>menu</title>
+    <link rel="stylesheet" type="text/css" href="menu15.css">
+</head>
+<style>
+body{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-color: #ffff56;
+}
+ul{
+    position: absolute;
+    top: 10%;
+    left: 80%;
+    transform: translate(-50%,-50%);
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+ul li{
+    list-style: none;
+    
+}
+ul li a{
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+    text-align: center;
+    font-size: 16px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #262626;
+    transition: .5s;
+}
+ul li a:before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0%;
+    width: 100%;
+    height: 2px;
+    background: #262626;
+    transform: scalex(0);
+    transform-origin: right;
+    transition: transform .5s;
+}
+ul li a:hover:before{
+    transform: scalex(1);
+    transform-origin: left
+}
+ul li a:after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0%;
+    width: 100%;
+    height: 2px;
+    background: #262626;
+    transform: scalex(0);
+    transform-origin: left;
+    transition: transform .5s;
+}
+ul li a:hover:after{
+    transform: scalex(1);
+    transform-origin: right
+}
+</style>
+
+<body>
+
+    <ul>
+        <li><a href="home.html"><b>home</b></a></li>
+        <li><a href="#">about</a></li>
+        <li><a href="#">Delete</a></li>
+        <li><a href="#">Update</a></li>
+        <li><a href="insert.php">Registration</a></li>
+        <li><a href="#">Login</a></li>
+    </ul>
