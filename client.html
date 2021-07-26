@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Script Effort Estimate</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+</head>
+<body ng-app="myapp", ng-controller="personCtrl">
+  <h4>Select a product</h4>
+  <mat-form-field apperance="fill">
+    <mat-label>Product</mat-label>
+    <mat-select>
+      <mat-option *ngFor="let product of products" [value]="product.value">
+        {{ product.viewValue }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br>
+  <br>
+    <table width="50%">
+        <tr>
+            <th>Complexity</th>
+            <th>No ofcases</th>
+            <th>Total Scripting Effort (Hrs)</th>
+          </tr>
+          <tr>
+            <td>Simple</td>
+            <td><input type="number" name="no_simple" ng-model="simple"></td>
+            <td>{{simple*2}}</td>
+          </tr>
+          <tr>
+            <td>Medium</td>
+            <td><input type="number" name="no_medium" ng-model="medium"></td>
+            <td>{{medium*4}}</td>
+          </tr>
+          <tr>
+            <td>Complex</td>
+            <td><input type="number" name="no_complex" ng-model="complex"></td>
+            <td>{{complex*8}}</td>
+        </tr>
+        <tr>
+            <td>Super complex</td>
+            <td><input type="number" name="no_super_complex" ng-model="super_complex"></td>
+            <td>{{super_complex*12}}</td>
+        </tr>
+        <tr>
+            <td>Scripting</td>
+            <td>{{simple+medium+complex+super_complex}}</td>
+            <td>{{overall()}}</td>
+        </tr>
+    </table>
+    <hr style="width:100%;text-align:left;margin-left:0">
+		<table style="width:100%">
+			<tr>
+			  <th>Activity</th>
+			  <th>Effort Weightage</th> 
+			  <th>Automation time (in hrs)</th>
+			</tr>
+			<tr>
+			  <td>Test case analysis</td>
+			  <td><input type="number" name="test_percentage" ng-model="test"></td>
+			  <td>{{ (overall()*100/script)*(test/100) | number:0 }}</td>
+			</tr>
+			<tr>
+			  <td>Scripting</td>
+			  <td><input type="number" name="script_percentage" ng-model="script"></td>
+			  <td>{{overall()}}</td>
+			</tr>
+			<tr>
+			  <td>Dry Run</td>
+			  <td><input type="number" name="dry_percentage" ng-model="dry"></td>
+			  <td>{{ (overall()*100/script)*(dry/100) | number:0 }}</td>
+			</tr>
+			<tr>
+				<td>Documentation</td>
+				<td><input type="number" name="document_percentage" ng-model="doc"></td>
+				<td>{{ (overall()*100/script)*(doc/100) | number:0 }}</td>
+			  </tr>
+			
+		  </table>
+    <script>
+        var app = angular.module('myapp',[]);
+        app.controller('personCtrl', function($scope){
+            $scope.overall = function(){
+                return $scope.simple*2 + $scope.medium*4 + $scope.complex*8 + $scope.super_complex*12;
+            };
+            $scope.
+        });
+    </script>
+    </body>
+</html>
+
